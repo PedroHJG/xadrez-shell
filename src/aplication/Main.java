@@ -39,7 +39,14 @@ public class Main {
                 if (capturedPiece != null){
                     captured.add(capturedPiece);
                 }
-            }catch (ChessException | InputMismatchException e){
+
+                if (chessMatch.getPromoted() != null){
+                    System.out.println("Digite para qual peça deve ser promovida (B/N/Q/R): ");
+                    String type = sc.nextLine();
+                    chessMatch.replacePromotedPiece(type);
+                }
+            }
+            catch (ChessException | InputMismatchException e){
                 System.out.println(e.getMessage());
                 sc.nextLine();
             }
